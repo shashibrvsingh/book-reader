@@ -1,13 +1,113 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  max-width: 1000px;
+  margin: 20px auto;
+}
+body {
+  background-color: rgb(233, 225, 210);
+}
+
+/* .align-book {
+  display: flex;
+  justify-content: center;
+} */
+
+.topbar-books {
+  color: chocolate;
+  font-size: 50px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+}
+
+.arrange-books {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 100px;
+  margin-top: 30px;
+}
+.arrange-books p {
+  font-size: 30px;
+  color: rgb(59, 29, 2);
+}
+
+.button-alphabet {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.button-alphabet-design {
+  font-size: 20px;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: coral;
+}
+.button-alphabet-design:hover {
+  background-color: rgb(177, 17, 206);
+}
+.book-card {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+/* CSS */
+.button {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #5adaff 0,
+    #5468ff 100%
+  );
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+}
+
+.button:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
 }
