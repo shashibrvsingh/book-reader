@@ -1063,11 +1063,13 @@ function BookCard({ bookContent }) {
   console.log(bookContent);
   return (
     <div className="">
-      <img
-        style={{ width: "200px", height: "250px" }}
-        src={bookContent.imageLink}
-        alt={bookContent.author}
-      />
+      <a href={bookContent.link} target="_blank" rel="noopener noreferrer">
+        <img
+          style={{ width: "200px", height: "250px" }}
+          src={bookContent.imageLink}
+          alt={bookContent.author}
+        />
+      </a>
       <p>
         <strong>Title</strong> <strong style={{ marginLeft: "15px" }}>:</strong>{" "}
         {bookContent.title}
