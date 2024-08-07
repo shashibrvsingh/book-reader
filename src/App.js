@@ -1030,9 +1030,18 @@ function ButtonAlphabet({ children, onClick, value }) {
 export default function App() {
   const [alphabet, setAlphabet] = useState(false);
   const [title, setTitle] = useState([]);
+  const [pages, setPages] = useState(false);
 
   function openByAlphabet() {
+    setPages(false);
     setAlphabet((el) => !el);
+
+    setTitle([]);
+  }
+  function openByPage() {
+    setAlphabet(false);
+    setPages((el) => !el);
+
     setTitle([]);
   }
 
@@ -1042,16 +1051,40 @@ export default function App() {
     setTitle(() => selectedBooks);
     console.log(title);
   }
-  function openByPage() {}
+
+  function handleByPages(value) {
+    console.log(value);
+    if (value > 1000) {
+      const selectedBooks = bookItems.filter((el) => el.pages > value);
+
+      setTitle(selectedBooks);
+    }
+    const selectedBooks = bookItems.filter(
+      (el) => el.pages > value && el.pages < value + 200
+    );
+    console.log(selectedBooks);
+
+    setTitle(selectedBooks);
+  }
+
   return (
     <div className="container">
       <Topbar openByAlphabet={openByAlphabet} openByPage={openByPage} />
       {alphabet && <BooksByAlphabet handleAlphabet={handleAlphabet} />}
+      {pages && <BooksByPages handleByPages={handleByPages} />}
       <div className="book-card">
         {title.map(
           (bookContent) =>
             alphabet && (
               <BookCard bookContent={bookContent} key={bookContent.author} />
+            )
+        )}
+      </div>
+      <div className="book-card">
+        {title.map(
+          (bookContent) =>
+            pages && (
+              <BookCard bookContent={bookContent} key={bookContent.title} />
             )
         )}
       </div>
@@ -1093,6 +1126,44 @@ function Topbar({ openByAlphabet, openByPage }) {
     </div>
   );
 }
+
+function BooksByPages({ handleByPages }) {
+  return (
+    <div className="book-pages">
+      <p style={{ fontSize: "25px" }}>Books By No of Pages: </p>
+      <ButtonAlphabet
+        onClick={(e) => handleByPages(Number(e.target.value))}
+        value={"0"}
+      >{`< 200`}</ButtonAlphabet>
+
+      <ButtonAlphabet
+        onClick={(e) => handleByPages(Number(e.target.value))}
+        value={"200"}
+      >{`200-400`}</ButtonAlphabet>
+
+      <ButtonAlphabet
+        onClick={(e) => handleByPages(Number(e.target.value))}
+        value={"400"}
+      >{`400-600`}</ButtonAlphabet>
+
+      <ButtonAlphabet
+        onClick={(e) => handleByPages(Number(e.target.value))}
+        value={"600"}
+      >{`600-800`}</ButtonAlphabet>
+
+      <ButtonAlphabet
+        onClick={(e) => handleByPages(Number(e.target.value))}
+        value={"800"}
+      >{`800-1000`}</ButtonAlphabet>
+
+      <ButtonAlphabet
+        onClick={(e) => handleByPages(Number(e.target.value))}
+        value={"1000"}
+      >{`>1000`}</ButtonAlphabet>
+    </div>
+  );
+}
+
 function BooksByAlphabet({ handleAlphabet }) {
   return (
     <div>

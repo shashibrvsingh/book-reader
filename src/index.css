@@ -52,6 +52,7 @@ body {
 .button-alphabet-design:hover {
   background-color: rgb(177, 17, 206);
 }
+
 .book-card {
   margin-top: 20px;
   display: grid;
@@ -59,6 +60,15 @@ body {
   grid-column-gap: 20px;
   grid-row-gap: 20px;
 }
+
+.book-pages {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
 /* CSS */
 .button {
   align-items: center;
